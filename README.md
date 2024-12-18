@@ -17,7 +17,7 @@ Docente: _Mag. Patrick Cuadros Quiroga_
 Integrantes:  
 
 ***CAXI CALANI Luis Eduardo (2018062487)***  
-***AGUILAR PINTO Victor Eleazar (2018062487)***  
+***DELGADO CASTILLO Jesus Angel (2018000491)***  
 
 **Tacna – Perú**  
 
@@ -97,7 +97,7 @@ La aplicación **UPT-SYNC** fue diseñada como una solución tecnológica para a
 ## **3. Autores**
 
 - **Luis Eduardo Caxi Calani** (2018062487)  
-- **Victor Eleazar Aguilar Pinto** (2018062487)
+- **Jesus Angel Delgado Castillo** (2018000491)
 
 ---
 
