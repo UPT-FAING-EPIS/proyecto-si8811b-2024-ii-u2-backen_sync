@@ -10,7 +10,7 @@
 
 **Proyecto _UPT-SYNC: Herramienta de apoyo para estudiantes_**  
 
-Curso: _Calidad y Pruebas de Software_  
+Curso: _Topicos de Base de Datos Avanzados I_  
 
 Docente: _Mag. Patrick Cuadros Quiroga_  
 
