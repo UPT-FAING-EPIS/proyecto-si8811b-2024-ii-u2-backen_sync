@@ -1,0 +1,62 @@
+name: Snyk Security Analysis and Report Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  snyk-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout del código
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Configurar Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    # 3. Instalar dependencias
+    - name: Install dependencies
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: npm install
+
+    # 4. Instalar Snyk CLI
+    - name: Install Snyk CLI
+      run: npm install -g snyk
+
+    # 5. Autenticar Snyk con el token
+    - name: Authenticate Snyk
+      run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
+    # 6. Ejecutar el análisis de Snyk y generar reporte JSON
+    - name: Run Snyk analysis
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: snyk test --json > snyk-report.json || true
+
+    # 7. Convertir reporte Snyk JSON a HTML usando snyk-to-html
+    - name: Convert Snyk report to HTML
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: |
+        npm install -g snyk-to-html
+        snyk-to-html -i snyk-report.json -o snyk-report.html
+
+    # 8. Preparar el reporte para la publicación
+    - name: Prepare Snyk report for deployment
+      run: |
+        mkdir -p snyk-output
+        cp proyecto-si8811b-2024-ii-u1-backend-nodejs/snyk-report.html snyk-output/index.html
+        ls -la snyk-output  # Verificar contenido
+
+    # 9. Publicar el reporte en gh-pages
+    - name: Deploy Snyk Report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: snyk-output
+        publish_branch: gh-pages
+        destination_dir: snyk-report

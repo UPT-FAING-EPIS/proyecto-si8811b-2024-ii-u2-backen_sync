@@ -1,0 +1,40 @@
+name: Publish Unit test Report to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout del repositorio
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Configurar Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Cambia la versión según tu proyecto
+
+    # 3. Instalar dependencias
+    - name: Install dependencies
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: npm install
+
+    # 4. Generar el reporte de cobertura de pruebas unitarias
+    - name: Run unit tests and generate coverage report
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: npm run test:unit
+
+    # 5. Publicar el reporte en gh-pages/unit-tests/
+    - name: Deploy Unit Test Coverage Report
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: proyecto-si8811b-2024-ii-u1-backend-nodejs/coverage-unit/lcov-report
+        publish_branch: gh-pages
+        destination_dir: unit-tests

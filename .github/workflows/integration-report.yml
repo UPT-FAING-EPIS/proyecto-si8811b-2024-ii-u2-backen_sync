@@ -1,0 +1,40 @@
+name: Publish Integration Test Coverage Report
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-integration-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout del repositorio
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Configurar Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Cambia la versión según tu proyecto
+
+    # 3. Instalar dependencias
+    - name: Install dependencies
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: npm install
+
+    # 4. Generar el reporte de cobertura de pruebas de integración
+    - name: Run integration tests and generate coverage report
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: npm run test:integration
+
+    # 5. Publicar el reporte en gh-pages/integration-tests/
+    - name: Deploy Integration Test Coverage Report
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: proyecto-si8811b-2024-ii-u1-backend-nodejs/coverage-integration/lcov-report
+        publish_branch: gh-pages
+        destination_dir: integration-tests

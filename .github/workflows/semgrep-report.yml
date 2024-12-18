@@ -1,0 +1,74 @@
+name: Publish Semgrep Analysis Report
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-semgrep-report:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout del código
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Configurar Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    # 3. Instalar dependencias
+    - name: Install dependencies
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: npm install
+
+    # 4. Configurar Semgrep con Docker
+    - name: Set up Semgrep using Docker
+      run: docker pull semgrep/semgrep
+
+    # 5. Ejecutar Semgrep y generar un reporte JSON
+    - name: Run Semgrep scan
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: |
+        docker run --rm -v $(pwd):/src semgrep/semgrep semgrep scan \
+          --config="p/default" --json --output semgrep.json --metrics=off
+
+    # 6. Verificar archivos después de Semgrep
+    - name: List files after Semgrep scan
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: ls -la
+
+    # 7. Configurar Python y prospector-html
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install prospector-html
+      run: python -m pip install prospector2html
+
+    # 8. Convertir el reporte Semgrep JSON a HTML
+    - name: Convert Semgrep results to HTML
+      working-directory: proyecto-si8811b-2024-ii-u1-backend-nodejs
+      run: |
+        prospector-html --input semgrep.json --output semgrep-report.html --filter semgrep || true
+        ls -la  # Lista archivos después de la conversión
+
+    # 9. Preparar el reporte para la publicación
+    - name: Prepare Semgrep report for deployment
+      run: |
+        mkdir -p semgrep-output
+        cp proyecto-si8811b-2024-ii-u1-backend-nodejs/semgrep-report.html semgrep-output/index.html
+        ls -la semgrep-output  # Verificar que la carpeta tiene el archivo
+
+    # 10. Publicar el reporte en gh-pages
+    - name: Deploy Semgrep Report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: semgrep-output
+        publish_branch: gh-pages
+        destination_dir: semgrep-report
