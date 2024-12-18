@@ -1,0 +1,59 @@
+/* login.css */
+.logo-img {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: auto;
+  }
+  
+  .card-body {
+    padding: 2rem;
+    
+  }
+  
+  .title-custom {
+    color: #082D80;
+    text-align: center;
+  }
+  
+  .btn-primary {
+    background-color: #082D80;
+    border-color: #082D80;
+    border-radius: 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #17569B;
+    border-color: #17569B;
+  }
+  
+  .input-group-text {
+    background-color: #082D80;
+    color: white;
+    border: none;
+    border-radius: 20px 0 0 20px;
+  }
+  
+  .input-group .form-control {
+    border-radius: 0 20px 20px 0;
+    border: 2px solid #082D80;
+    
+  }
+  
+  .btn-blue {
+    background-color: #082D80;
+    color: white;
+    border-color: #082D80;
+    border-radius: 0 20px 20px 0;
+  }
+  
+  .btn-blue:hover {
+    background-color: #093463;
+    border-color: #17569B;
+  }
+  
+  .rounded-input {
+    border-radius: 20px;
+  }
+  
+  

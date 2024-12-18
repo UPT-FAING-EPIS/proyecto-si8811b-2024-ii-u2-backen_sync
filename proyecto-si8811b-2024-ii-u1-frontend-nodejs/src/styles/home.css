@@ -1,0 +1,68 @@
+/* home.css */
+.home-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/src/assets/images/faing.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px); 
+  z-index: -1; 
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative; 
+}
+
+.home-content {
+  background-color: white; 
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: #2D366F;
+  max-width: 500px;
+  width: 100%;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.home-container .date-time-text{
+  font-size: 30px;
+  font-weight: 450;
+  color: #2D366F;
+}
+
+.date-time {
+  margin-bottom: 30px;
+}
+
+
+.home-container .btn {
+  background-color: #17569B;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.home-container .btn:hover {
+  background-color: #0056b3;
+}
