@@ -10,14 +10,14 @@
 
 **Proyecto _UPT-SYNC: Herramienta de apoyo para estudiantes_**  
 
-Curso: _Calidad y Pruebas de Software_  
+Curso: _Topicos de Base de Datos Avanzados I_  
 
 Docente: _Mag. Patrick Cuadros Quiroga_  
 
 Integrantes:  
 
 ***CAXI CALANI Luis Eduardo (2018062487)***  
-***AGUILAR PINTO Victor Eleazar (2018062487)***  
+***DELGADO CASTILLO Jesus Angel (2018000491)***  
 
 **Tacna – Perú**  
 
@@ -34,7 +34,7 @@ Integrantes:
 
 | **CONTROL DE VERSIONES** | **Hecha por** | **Revisada por** | **Aprobada por** | **Fecha**     | **Motivo**          |
 |---------------------------|---------------|------------------|------------------|---------------|---------------------|
-| 1.0                       | MPV           | ELV              | ARV              | 10/10/2020    | Versión Original    |
+| 3.0                       | LCC           | JDC              | PCQ              | 18/12/2024    | Versión Final    |
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
@@ -78,7 +78,7 @@ Abstract
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
-# **Tema: Mejoramiento de la Aplicación UPT-SYNC**
+# **Proyecto _UPT-SYNC: Herramienta de apoyo para estudiantes_**
 
 ---
 
@@ -97,7 +97,7 @@ La aplicación **UPT-SYNC** fue diseñada como una solución tecnológica para a
 ## **3. Autores**
 
 - **Luis Eduardo Caxi Calani** (2018062487)  
-- **Victor Eleazar Aguilar Pinto** (2018062487)
+- **Jesus Angel Delgado Castillo** (2018000491)
 
 ---
 
