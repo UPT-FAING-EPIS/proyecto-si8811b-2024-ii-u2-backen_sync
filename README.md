@@ -34,7 +34,7 @@ Integrantes:
 
 | **CONTROL DE VERSIONES** | **Hecha por** | **Revisada por** | **Aprobada por** | **Fecha**     | **Motivo**          |
 |---------------------------|---------------|------------------|------------------|---------------|---------------------|
-| 1.0                       | MPV           | ELV              | ARV              | 10/10/2020    | Versión Original    |
+| 3.0                       | LCC           | JDC              | PCQ              | 18/12/2024    | Versión Final    |
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
@@ -78,7 +78,7 @@ Abstract
 
 <div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
-# **Tema: Mejoramiento de la Aplicación UPT-SYNC**
+# **Proyecto _UPT-SYNC: Herramienta de apoyo para estudiantes_**
 
 ---
 
